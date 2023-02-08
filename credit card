@@ -1,0 +1,53 @@
+class CreditCard {
+    public static void main(String[] args) {
+        System.out.println("begin main");
+        CreditBalance creditBalanceObj1= new CreditBalance(2033, "Passy", 20000);
+        CreditBalance creditBalanceObj2= new CreditBalance(2034, "Kelly", 50000);
+        CreditBalance creditBalanceObj3= new CreditBalance(2035, "John", 10000);
+
+        creditBalanceObj1.printCreditBalance();
+        creditBalanceObj2.printCreditBalance();
+        creditBalanceObj3.printCreditBalance();
+
+        creditBalanceObj1.withdraw(400);
+        creditBalanceObj2.paid(300);
+        creditBalanceObj3.withdraw(700);
+
+        creditBalanceObj1.printCreditBalance();
+        creditBalanceObj2.printCreditBalance();
+        creditBalanceObj3.printCreditBalance();
+
+        System.out.println("end main..");
+        }
+    }
+    class CreditBalance
+    {
+        private int cardNumber;
+        private String AccountHolder;
+        private double accountBalance;
+
+        CreditBalance(int cardNumber, String accountHolder, double creditBalance) {
+            System.out.println("Constructor is setting the initial details..");
+            this.cardNumber = cardNumber;
+            this.AccountHolder= accountHolder;
+            this.accountBalance= accountBalance;
+        }
+        void PrintCreditBalance(){
+
+                System.out.println("cardNumber: " + cardNumber);
+                System.out.println("AccountHolder:" + AccountHolder);
+                System.out.println("accountBalance:" + accountBalance);
+                System.out.println("------------------------");
+                }
+        void withdraw (double amountToWithdraw) {
+              System.out.println("withdrawing..."+amountToWithdraw);
+              accountBalance = accountBalance - amountToWithdraw;
+        }
+        void paid(double amountToBePaid){
+              System.out.println("paying..."+amountToBePaid);
+              accountBalance = accountBalance + amountToBePaid;
+            }
+
+        public void printCreditBalance() {
+        }
+    }
